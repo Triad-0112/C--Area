@@ -65,3 +65,5 @@ int main() {
     sexyPair(limit);
     return 0;
 }
+
+// NOTE : NEED REFACTORY
