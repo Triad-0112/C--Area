@@ -15,8 +15,8 @@ std::vector<unsigned char> hexchar_to_bytes(std::string_view str) {
     for (size_t i = 0; i < str.size(); i += 2) {
         result.push_back((hexchar_to_int(str[i])<<4) | hexchar_to_int(str[i+1]));
     }
-    for (int i : result) {
-        std::cout << i << " ";
+    for (unsigned char i : result) {
+        std::cout << i << "";
     }
     return result;
 }
@@ -27,5 +27,4 @@ int main() {
     std::vector<unsigned char> expected{ 0xBA, 0xAD, 0xF0, 0x0D, 0x42 };
     assert(hexchar_to_bytes("BAADF00D42")==expected);
     assert(hexchar_to_bytes("BaaDf00d42")==expected);
-    hexchar_to_bytes("BaaDf00d42");
 }

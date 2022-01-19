@@ -11,8 +11,8 @@ std::string bytes_to_hexstr(Iter begin, Iter end, bool const uppercase = false) 
     for(; begin  != end; ++begin) {
         oss << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(*begin);
     }
-    for (int i : oss.str()) {
-        std::cout << i << " ";
+    for (char i : oss.str()) {
+        std::cout << i << "";
     }
     return oss.str();
 }
