@@ -11,6 +11,9 @@ std::string bytes_to_hexstr(Iter begin, Iter end, bool const uppercase = false) 
     for(; begin  != end; ++begin) {
         oss << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(*begin);
     }
+    for (int i : oss.str()) {
+        std::cout << i << " ";
+    }
     return oss.str();
 }
 
@@ -21,6 +24,7 @@ std::string bytes_to_hexstr(C const & c, bool const uppercase = false) {
 
 int main() {
     std::vector<unsigned char> v{ 0xBA, 0xAD, 0xF0, 0x0D };
+    std::vector<unsigned char> data{ 0xFF, 0xFF, 0xFF, 0xDD, 0xF1, 0x1F };
     std::array<unsigned char, 6> a{ {1,2,3,4,5,6} };
     unsigned char buf[5] = {0x11, 0x22, 0x33, 0x44, 0x55};
     assert(bytes_to_hexstr(v, true) == "BAADF00D");
@@ -29,5 +33,5 @@ int main() {
     assert(bytes_to_hexstr(v) == "baadf00d");
     assert(bytes_to_hexstr(a) == "010203040506");
     assert(bytes_to_hexstr(buf) == "1122334455");
-    std::cout << buf << std::endl;
+    bytes_to_hexstr(a, true);
 }
