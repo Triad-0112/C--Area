@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+#include <sstream>
 
 template <class Elem>
 using tstring = std::basic_string<Elem, std::char_traits<Elem>, std::allocator<Elem>>;
@@ -23,6 +24,10 @@ tstring<Elem> capitalize(tstring<Elem> const & text) {
         }
         else result << ch;
     }
+    for (char i : result.str()) {
+        std::cout << i << "";
+    }
+    std::cout << std::endl;
     return result.str();
 }
 
@@ -30,4 +35,6 @@ int main() {
     using namespace std::string_literals;
     assert("The C++ Challenger"s == capitalize("the c++ challenger"s));
     assert("This Is An Example, Should Work!"s == capitalize("THIS IS an ExamplE, should wORK!"s));
+    capitalize("HEY BROOO This TitLE is Ignorant!! fix me"s);
+    capitalize("C++ iS AWesOME FiX and RepEat, SleEp and RE-Initiate"s);
 }
