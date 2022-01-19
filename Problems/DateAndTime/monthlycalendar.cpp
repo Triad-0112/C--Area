@@ -30,5 +30,7 @@ void print_month_calendar(int const y, unsigned int m){
 
 int main()
 {
-    print_month_calendar(2022, 2);
+    for (int i = 1; i<=12; i++) {
+        print_month_calendar(2022, i);
+    }
 }
